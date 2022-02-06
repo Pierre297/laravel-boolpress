@@ -1,8 +1,32 @@
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url("https://fonts.googleapis.com/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import '~bootstrap/scss/bootstrap';
+@import "~bootstrap/scss/bootstrap";
+
+body {
+    text-align: center;
+}
+
+.register-section {
+    background-color: #4495d4;
+    color: white;
+}
+
+.register-title {
+    margin-top: 30px;
+}
+
+.register {
+    margin: 50px 0;
+    input {
+        margin-right: 25px;
+    }
+
+    .register-btn {
+        margin-top: 50px;
+    }
+}
