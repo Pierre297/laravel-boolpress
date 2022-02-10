@@ -8,13 +8,17 @@ class Post extends Model
 {
     protected $fillable = [
 
-        'username',
-        'place',
-        'content',
-        'comment',
-        'date',
-        'like',
+        'title',
+        'text',
+        'likes',
 
+        'category_id',
 
     ];
+
+    public function category()
+    {
+
+        return $this->belongsTo(Category::class);
+    }
 }

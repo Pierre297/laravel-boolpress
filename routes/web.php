@@ -10,12 +10,11 @@ use Illuminate\Support\Facades\Route;
 
 // Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/', 'GuestController@home')->name('home');
+Route::get('/posts', 'GuestController@home')->name('posts');
 
-// Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
-Route::post('/register', 'Auth\RegisterController@register')->name('register');
+Route::get('/post/create', 'HomeController@createPost')->name('post.create');
+Route::post('/post/Store', 'HomeController@storePost')->name('post.store');
+
 Route::post('/login', 'Auth\LoginController@login')->name('login');
-
-Route::get('/emps/list', 'GuestController@apiGetEmps')->name('api.getEmps');
-
-Route::get('/emp/delete/{id}', 'GuestController@apiDeleteEmp')->name('api.deleteEmp');
+Route::post('/register', 'Auth\RegisterController@register')->name('register');
+Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
