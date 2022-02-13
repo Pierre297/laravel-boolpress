@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddForeignKey extends Migration
+class CreateTagsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,13 @@ class AddForeignKey extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
+        Schema::create('tags', function (Blueprint $table) {
+            $table->id();
 
-            $table->foreign('category_id', 'post_category')
-                ->references('id')
-                ->on('categories');
+            $table->string('name', 24)->unique();
+            $table->string('desc')->nullable();
+
+            $table->timestamps();
         });
     }
 
@@ -28,9 +30,6 @@ class AddForeignKey extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-
-            $table->dropForeign('post_category');
-        });
+        Schema::dropIfExists('tags');
     }
 }

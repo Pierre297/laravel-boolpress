@@ -9,6 +9,7 @@
             <th>Text</th>
             <th>Like</th>
             <th>Category</th>
+            <th>Tags</th>
             <th>Data</th>
         </tr>
         @foreach ($posts as $post)
@@ -18,7 +19,14 @@
                 <td>{{ $post -> text }}</td>
                 <td>{{ $post -> likes }}</td>
                 <td>{{ $post -> category -> name }} </td>
-                <td>{{ $post -> created_at }}</td>
+                <td>
+                    @foreach ($post -> tags as $tag)
+
+                        {{ $tag -> name }} <br>
+                        
+                    @endforeach
+                </td>
+                <td>{{ $post -> created_at -> format('d/m/Y H:s') }}</td>
             </tr>
             
         @endforeach  
